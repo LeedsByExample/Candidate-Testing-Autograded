@@ -57,9 +57,9 @@ function gradeQuiz(candidateAnswers) {
 
     for (i = 0; i < candidateAnswers.length; i++) {
       if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
-        console.log(`You answered: ${candidateAnswers[i]}. Congratulations! ${candidateAnswers[i]} is the correct answer. `);
+        console.log(`For question ${i+1}, you answered: ${candidateAnswers[i]}. Congratulations! ${candidateAnswers[i]} is the correct answer. `);
       } else {
-        console.log(`You answered: ${candidateAnswers[i]}. That is incorrect. The correct answer is ${correctAnswers[i]}.`);
+        console.log(`For question ${i+1}, you answered: ${candidateAnswers[i]}. That is incorrect. The correct answer is ${correctAnswers[i]}.`);
       }
     }
 
@@ -69,7 +69,6 @@ function gradeQuiz(candidateAnswers) {
   for (i = 0; i < candidateAnswers.length; i++) { 
     if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
       numCorrect++;
-      console.log(numCorrect);
     }
   }
 
