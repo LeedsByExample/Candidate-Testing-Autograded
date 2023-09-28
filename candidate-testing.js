@@ -56,15 +56,31 @@ function gradeQuiz(candidateAnswers) {
     // }
 
     for (i = 0; i < candidateAnswers.length; i++) {
-      if (candidateAnswers[i] === correctAnswers[i]) {
+      if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
         console.log(`You answered: ${candidateAnswers[i]}. Congratulations! ${candidateAnswers[i]} is the correct answer. `);
       } else {
         console.log(`You answered: ${candidateAnswers[i]}. That is incorrect. The correct answer is ${correctAnswers[i]}.`);
       }
     }
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = "";  //TODO 3.2 use this variable to calculate the candidates score.
+  let numCorrect = [];
 
+  for (i = 0; i < candidateAnswers.length; i++) { 
+    if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
+      numCorrect++;
+      console.log(numCorrect);
+    }
+  }
+
+  grade = (numCorrect/questions.length)*100;
+
+  if (grade >= 80) {
+    console.log(`Overall grade: ${grade}%. You have answered ${numCorrect} of ${questions.length} questions correctly. Congratulations! You have passed.`);
+  } else {
+    console.log(`Overall grade: ${grade}%. You have answered ${numCorrect} of ${questions.length} questions correctly. I'm sorry. You have failed.`);
+
+  }
 
   return grade;
 }
@@ -90,7 +106,3 @@ module.exports = {
   gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
-
-//unsure again why getting undefined error
-//okay i think its because candidateAnswers is a parameter of function gradeQuiz? is that necessary?
-//can i use a variable that's been declared/initialized outside of the function as a parameter of the function? i don't think so?
